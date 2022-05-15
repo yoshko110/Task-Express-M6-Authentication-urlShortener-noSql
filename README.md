@@ -84,6 +84,36 @@ Generate a token in `user` controller's `signin` function.
 8. Save the returned value in a variable called `token`.
 9. Send `token` as a json response.
 
-### 🍋 Permissions!
+### Signin After Signup
+
+1. In the user controller's signup function, create a payload object that takes its details from newUser and encrypt it.
+
+2. Pass the token as a reponse.
+
+### JWT Strategy
+
+1. Start with installing the `JWT strategy`.
+
+2. In `middleware/passport.js` require `JWTStrategy`.
+
+3. We will create a JWT strategy instance, which takes two arguments, an `options` object and a callback function.
+
+4. Tokens can be extracted from the request in many ways. We will pass our token in the request's authorization header with the scheme bearer. We need to require `fromAuthHeaderAsBearerToken`.
+
+5. Now we will pass this method to our `options` object. Also, we will pass our `secret key` we defined in `config/keys.js`.
+
+6. Now the second argument, an asynchronous callback function, takes two arguments, the token's payload and done method. So the JWT strategy decodes the token and passes the payload as an argument.
+
+7. Check if the token is expired or not by comparing the expiration date to the date right now. If the token is expired, call `done` and pass it `null` and `false` as arguments, which will throw a `401` error.
+
+8. If the token is not expired, we will find the `user` with the ID saved in the token. You can use `findOne` and pass it the `username`. Then we will pass the found `user` to `done`. If no `user` is found, it will throw a `401` error.
+
+9. Let's initialize our strategy in `app.js`. Require `jwtStrategy` and pass it to `passport.use()`.
+
+### 🍋 :userId
+
+In the `shorten`, use `req.user` instead of the route param.
+
+### 🌶️ Permissions!
 
 If the user is not the one who created the url, don't allow him to delete it!
