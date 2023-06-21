@@ -25,7 +25,7 @@ Generate a token in `users.controllers`'s `signup` method.
 3. In `users.controllers`, create a function called `generateToken` that takes `user` as an argument.
 4. In this function, create an object called `payload` and pass it the user's `username` and `_id` that's coming from `user`.
 5. Keep in mind that the token **must** have the `expiration date` of the token.
-6. Add an `exp` property to `payload` and its value is the date right now plus `JWT_EXPIRATION_MS`.
+6. Add an object as a third parameter to the `jwt.sign()` function that has a `expiresIn` key and its value is the token's duration from the  `JWT_TOKEN_EXP` variable.
 7. After creating your `payload` object, call `jwt.sign()` and pass it two arguments:
    1. `payload`, make sure to stringify it.
    2. `JWT_SECRET`
