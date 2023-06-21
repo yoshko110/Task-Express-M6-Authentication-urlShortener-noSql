@@ -24,7 +24,7 @@ Generate a token in `users.controllers`'s `signup` method.
 2. Require `jwt` from `jsonwebtoken`.
 3. In `users.controllers`, create a function called `generateToken` that takes `user` as an argument.
 4. In this function, create an object called `payload` and pass it the user's `username` and `_id` that's coming from `user`.
-5. Keep in mind that the token **must** have the user's ID and the expiration date of the token.
+5. Keep in mind that the token **must** have the `expiration date` of the token.
 6. Add an `exp` property to `payload` and its value is the date right now plus `JWT_EXPIRATION_MS`.
 7. After creating your `payload` object, call `jwt.sign()` and pass it two arguments:
    1. `payload`, make sure to stringify it.
