@@ -1,26 +1,26 @@
-const User = require('../../models/User');
-
-exports.signin = async (req, res) => {
-  try {
-  } catch (err) {
-    res.status(500).json('Server Error');
-  }
-};
+const User = require("../../models/User");
 
 exports.signup = async (req, res) => {
   try {
     const newUser = await User.create(req.body);
     res.status(201).json(newUser);
   } catch (err) {
-    res.status(500).json('Server Error');
+    next(err);
+  }
+};
+
+exports.signin = async (req, res) => {
+  try {
+  } catch (err) {
+    res.status(500).json("Server Error");
   }
 };
 
 exports.getUsers = async (req, res) => {
   try {
-    const users = await User.find().populate('urls');
+    const users = await User.find().populate("urls");
     res.status(201).json(users);
   } catch (err) {
-    res.status(500).json('Server Error');
+    next(err);
   }
 };
