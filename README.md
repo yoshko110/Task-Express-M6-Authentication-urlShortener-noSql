@@ -35,7 +35,7 @@ Generate and return a token in `users.controllers`'s `signup` function.
 8. Save the returned value in a variable called `token` and send it as a response (json object should have a key of token with an encoded string as its value).
 9. Test your route in Postman.
 
-### Login - Local Strategy
+### Signin
 
 #### Passport Setup
 
