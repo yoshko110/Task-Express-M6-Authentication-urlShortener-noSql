@@ -4,7 +4,7 @@
 
 - Fork and clone [this repository](https://github.com/JoinCODED/Task-Express-M6-Authentication-urlShortener-noSql) to your `Development` folder.
 
-After forking the repository, you will find a fully functional url shortener!.
+After forking the repository, you will find a fully functional url shortener!
 
 The goal is to prevent any unauthorized user from using our service.
 
@@ -24,7 +24,7 @@ The goal is to prevent any unauthorized user from using our service.
 Generate and return a token in `users.controllers`'s `signup` function.
 
 1. Install `jsonwebtoken`.
-2. Require `jwt` from `jsonwebtoken`.
+2. Require `jwt` from `jsonwebtoken` at the top of `users.controllers`.
 3. In `users.controllers`, create a function called `generateToken` that takes `user` as an argument.
 4. In this function, create an object called `payload` and pass it the user's `username` and `_id` that's coming from `user`.
 5. After creating your `payload` object, call `jwt.sign()` and pass it two arguments:
